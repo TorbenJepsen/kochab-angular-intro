@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <title>Angular Intro</title>
+</head>
+<!-- anything that starts with ng-app is an angular directive that connects the html to angular -->
+
+<body ng-app="MyApp">
+    <h1>Angular JS</h1>
+    {{7 + 7}}
+    <div ng-controller="WelcomeController as vm">
+        <!-- vm stands for view model -->
+        <input ng-model="vm.message" /> {{ vm.message }}
+        <!-- two way binding!!! -->
+        <button ng-click="vm.greet(vm.message)">Greet</button>
+        <ul>
+            <!-- ng-show, ng-hide, ng-if, ng-repeat (like a for each loop) -->
+            <li ng-repeat="person in vm.names" >
+                {{ person.name }} is an instructor, he says {{ person.greeting }}
+                <img ng-src="https://github.com/{{person.github}}.png?size=200" alt= "Instructor Image" ng-show="person.github" /></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
